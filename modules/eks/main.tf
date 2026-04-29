@@ -8,6 +8,7 @@ resource "aws_eks_cluster" "eks_cluster" {
         endpoint_public_access  = true
 
          # worker nodes will be launched in private subnets, so we need to specify the private subnet IDs here
+        # subnet_ids is where our pods are creates
         subnet_ids = var.subnet_ids
     }
 
