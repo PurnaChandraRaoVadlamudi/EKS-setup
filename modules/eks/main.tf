@@ -17,7 +17,7 @@ resource "aws_eks_cluster" "eks_cluster" {
       bootstrap_cluster_creator_admin_permissions = true
     }
    
-    “First attach IAM policy, then create EKS cluster”
+   # “First attach IAM policy, then create EKS cluster”
 
 }
 
