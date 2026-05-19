@@ -4,10 +4,13 @@ variable "node_role_arn" {
   type = string
 }
 
-variable "subnet_ids" {
+variable "public_subnet_ids" {
   type = list(string)
 }
 
+variable "private_subnet_ids" {
+  type = list(string)
+}
 variable "node_group_desired_size" {
   type = number
 }
