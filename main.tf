@@ -14,7 +14,7 @@ module "eks" {
   cluster_name     = var.cluster_name
   cluster_version  = var.cluster_version
   cluster_role_arn = module.iam.cluster_role_arn
-  subnet_ids       = module.vpc.private_subnet_ids
+  subnet_ids = module.vpc.private_subnet_ids
 }
 
 module "iam" {
@@ -23,9 +23,10 @@ module "iam" {
 
 module "nodes" {
   source = "./modules/nodes"
+  public_subnet_ids  = module.vpc.public_subnet_ids
+  private_subnet_ids = module.vpc.private_subnet_ids
 
-  subnet_ids   = module.vpc.private_subnet_ids
-  cluster_name = module.eks.cluster_name
+  cluster_name  = module.eks.cluster_name
   node_role_arn = module.iam.node_role_arn
 
   node_group_desired_size   = var.node_group_desired_size
@@ -33,6 +34,6 @@ module "nodes" {
   node_group_min_size       = var.node_group_min_size
   node_group_instance_types = var.node_group_instance_types
 
-  depends_on = [module.eks]   # 
+  depends_on = [module.eks] # 
 }
 

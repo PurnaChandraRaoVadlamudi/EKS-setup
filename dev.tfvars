@@ -1,4 +1,4 @@
-region                     = "ap-south-1"
+region                     = "us-east-1"
 vpc_name                   = "Eks-VPC"
 vpc_cidr                   = "10.0.0.0/16"
 public_availability_zones  = ["ap-south-1a", "ap-south-1b"]
@@ -7,7 +7,7 @@ private_availability_zones = ["ap-south-1a", "ap-south-1b"]
 private_subnet_cidr        = ["10.0.3.0/24", "10.0.4.0/24"]
 
 cluster_name    = "Eks-Cluster"
-cluster_version = "1.30"
+cluster_version = "1.35"
 
 
 node_group_desired_size   = 2
